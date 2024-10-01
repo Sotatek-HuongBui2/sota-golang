@@ -1,0 +1,1377 @@
+basePath: /api/v1
+definitions:
+  models.Categories:
+    properties:
+      category_name:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      parent_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.CustomOptions:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      option_items:
+        items:
+          $ref: '#/definitions/models.OptionItems'
+        type: array
+      option_name:
+        type: string
+      position:
+        type: string
+      price:
+        type: string
+      product_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Histories:
+    properties:
+      action_name:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      entity_code:
+        type: string
+      entity_id:
+        type: string
+      id:
+        type: string
+      meta_data:
+        type: string
+      processed_at:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.OptionItems:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      meta_data:
+        type: string
+      option_id:
+        type: string
+      product_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Options:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      option_name:
+        type: string
+      option_value:
+        type: string
+      position:
+        type: string
+      product_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Outlets:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      meta_data:
+        type: string
+      outlet_name:
+        type: string
+      updated_at:
+        type: string
+      warehouse_id:
+        type: string
+    type: object
+  models.Products:
+    properties:
+      barcode:
+        type: string
+      created_at:
+        type: string
+      custom_options:
+        items:
+          $ref: '#/definitions/models.CustomOptions'
+        type: array
+      deleted_at:
+        type: string
+      id:
+        type: string
+      image_url:
+        type: string
+      is_active:
+        type: boolean
+      is_variant:
+        type: boolean
+      manage_stock:
+        type: string
+      meta_data:
+        type: string
+      options:
+        items:
+          $ref: '#/definitions/models.Options'
+        type: array
+      parent_id:
+        type: string
+      price:
+        type: string
+      product_name:
+        type: string
+      safety_threshold:
+        type: string
+      sku:
+        type: string
+      special_price:
+        type: string
+      taxable:
+        type: boolean
+      type:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Roles:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      level:
+        type: integer
+      meta_data:
+        type: string
+      permissions:
+        type: string
+      role_name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Users:
+    properties:
+      address:
+        type: string
+      country:
+        type: string
+      country_code:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+      meta_data:
+        type: string
+      middle_name:
+        type: string
+      password:
+        type: string
+      region:
+        type: string
+      region_code:
+        type: string
+      role_id:
+        type: string
+      updated_at:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.Warehouses:
+    properties:
+      country:
+        type: string
+      country_code:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      meta_data:
+        type: string
+      region:
+        type: string
+      region_code:
+        type: string
+      updated_at:
+        type: string
+      warehouse_name:
+        type: string
+    type: object
+  requests.ChangePassword:
+    properties:
+      new_password:
+        type: string
+      old_password:
+        type: string
+      renew_password:
+        type: string
+    type: object
+  requests.CreateOrUpdateCategory:
+    properties:
+      category_name:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      parent_id:
+        type: string
+    type: object
+  requests.CreateOrUpdateOutlet:
+    properties:
+      id:
+        type: string
+      is_active:
+        type: boolean
+      meta_data:
+        type: string
+      outlet_name:
+        type: string
+      warehouse_id:
+        type: string
+    type: object
+  requests.CreateOrUpdateProduct:
+    properties:
+      barcode:
+        type: string
+      custom_options:
+        $ref: '#/definitions/models.CustomOptions'
+      id:
+        type: string
+      image_url:
+        type: string
+      is_active:
+        type: boolean
+      is_variant:
+        type: boolean
+      manage_stock:
+        type: string
+      options:
+        items:
+          $ref: '#/definitions/models.Options'
+        type: array
+      parent_id:
+        type: string
+      price:
+        type: string
+      product_name:
+        type: string
+      safety_threshold:
+        type: string
+      sku:
+        type: string
+      special_price:
+        type: string
+      taxale:
+        type: boolean
+      type:
+        type: string
+    type: object
+  requests.CreateOrUpdateRole:
+    properties:
+      id:
+        type: string
+      level:
+        type: integer
+      name:
+        type: string
+      permissions:
+        type: string
+    type: object
+  requests.CreateOrUpdateWarehouse:
+    properties:
+      country:
+        type: string
+      country_code:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      region:
+        type: string
+      region_code:
+        type: string
+      warehouse_name:
+        type: string
+    type: object
+  requests.Login:
+    properties:
+      password:
+        type: string
+      username_or_email:
+        type: string
+    type: object
+  requests.MailResetPassword:
+    properties:
+      email:
+        type: string
+    type: object
+  requests.Register:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      repassword:
+        type: string
+      user_name:
+        type: string
+    type: object
+  requests.ResetPassword:
+    properties:
+      new_password:
+        type: string
+    type: object
+  utils.IPagination-array_models_Categories:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Categories'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Histories:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Histories'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Outlets:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Outlets'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Products:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Products'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Roles:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Roles'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Users:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Users'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+  utils.IPagination-array_models_Warehouses:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.Warehouses'
+        type: array
+      limit:
+        type: integer
+      meta: {}
+      page:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /categories:
+    get:
+      description: Return list of category
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Categories'
+      security:
+      - BearerAuth: []
+      summary: Get all category
+      tags:
+      - Category
+    post:
+      description: Save category data in Db.
+      parameters:
+      - description: Create category
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateCategory'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Categories'
+      security:
+      - BearerAuth: []
+      summary: Create Category
+      tags:
+      - Category
+  /categories/{id}:
+    delete:
+      description: Return the category whoes categoryId valu mathes id.
+      parameters:
+      - description: delete category
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Categories'
+      security:
+      - BearerAuth: []
+      summary: Get Single category by id.
+      tags:
+      - Category
+    get:
+      description: Return the category whoes categoryId value mathes id.
+      parameters:
+      - description: get category by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Categories'
+      security:
+      - BearerAuth: []
+      summary: Get Single category by id.
+      tags:
+      - Category
+    put:
+      description: Update category data.
+      parameters:
+      - description: update category by id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update category
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateCategory'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Categories'
+      security:
+      - BearerAuth: []
+      summary: Update category
+      tags:
+      - Category
+  /histories:
+    get:
+      description: Return list of history.
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Histories'
+      security:
+      - BearerAuth: []
+      summary: Get Histories
+      tags:
+      - Histories
+  /login:
+    post:
+      description: Return string token jwt
+      parameters:
+      - description: Login
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Login
+      tags:
+      - Authentication
+  /outlets:
+    get:
+      description: Return list of outlet
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Outlets'
+      security:
+      - BearerAuth: []
+      summary: Get all outlet
+      tags:
+      - Outlets
+    post:
+      description: Save outlet data in Db.
+      parameters:
+      - description: Create outlet
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateOutlet'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Outlets'
+      security:
+      - BearerAuth: []
+      summary: Create Outlet
+      tags:
+      - Outlets
+  /outlets/{id}:
+    delete:
+      description: Return the outlet whoes outletId valu mathes id.
+      parameters:
+      - description: delete outlet
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Outlets'
+      security:
+      - BearerAuth: []
+      summary: Get Single outlet by id.
+      tags:
+      - Outlets
+    get:
+      description: Return the outlet whoes OutletId value mathes id.
+      parameters:
+      - description: get outlet by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Outlets'
+      security:
+      - BearerAuth: []
+      summary: Get Single outlet by id.
+      tags:
+      - Outlets
+    put:
+      description: Update outlet data.
+      parameters:
+      - description: update outlet by id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update outlet
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateOutlet'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Outlets'
+      security:
+      - BearerAuth: []
+      summary: Update outlet
+      tags:
+      - Outlets
+  /products:
+    get:
+      description: Return list of product
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Products'
+      security:
+      - BearerAuth: []
+      summary: Get all product
+      tags:
+      - Product
+    post:
+      description: Save product data in Db.
+      parameters:
+      - description: Create product
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Products'
+      security:
+      - BearerAuth: []
+      summary: Create Product
+      tags:
+      - Product
+  /products/{id}:
+    delete:
+      description: Return the product whoes productId valu mathes id.
+      parameters:
+      - description: delete product
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Products'
+      security:
+      - BearerAuth: []
+      summary: Get Single product by id.
+      tags:
+      - Product
+    get:
+      description: Return the product whoes productId value mathes id.
+      parameters:
+      - description: get product by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Products'
+      security:
+      - BearerAuth: []
+      summary: Get Single product by id.
+      tags:
+      - Product
+    put:
+      description: Update product data.
+      parameters:
+      - description: update product by id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update product
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Products'
+      security:
+      - BearerAuth: []
+      summary: Update product
+      tags:
+      - Product
+  /register:
+    post:
+      description: Return register new account
+      parameters:
+      - description: Register
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.Register'
+      produces:
+      - application/json
+      responses: {}
+      summary: Register
+      tags:
+      - Authentication
+  /reset-password:
+    post:
+      description: Send mail to reset password.
+      parameters:
+      - description: email send to reset password
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.MailResetPassword'
+      produces:
+      - application/json
+      responses: {}
+      summary: Reset Password
+      tags:
+      - default
+  /roles:
+    get:
+      description: Return list of role
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Roles'
+      security:
+      - BearerAuth: []
+      summary: Get all role
+      tags:
+      - Roles
+    post:
+      description: Save role data in Db.
+      parameters:
+      - description: Create role
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateRole'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Roles'
+      security:
+      - BearerAuth: []
+      summary: Create Role
+      tags:
+      - Roles
+  /roles/{id}:
+    delete:
+      description: Return the role whoes roleId valu mathes id.
+      parameters:
+      - description: delete role
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Roles'
+      security:
+      - BearerAuth: []
+      summary: Get Single role by id.
+      tags:
+      - Roles
+    get:
+      description: Return the role whoes roleId valu mathes id.
+      parameters:
+      - description: update roles by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Roles'
+      security:
+      - BearerAuth: []
+      summary: Get Single role by id.
+      tags:
+      - Roles
+    put:
+      description: Update role data.
+      parameters:
+      - description: update role by id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update role
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateRole'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Roles'
+      security:
+      - BearerAuth: []
+      summary: Update role
+      tags:
+      - Roles
+  /users:
+    get:
+      description: Return list of user.
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Users'
+      security:
+      - BearerAuth: []
+      summary: Get Users
+      tags:
+      - Users
+    post:
+      description: Save user data in Db.
+      parameters:
+      - description: Create user
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+      security:
+      - BearerAuth: []
+      summary: Create User
+      tags:
+      - Users
+  /users/{id}:
+    delete:
+      description: Delete user, update deleteTime in Db.
+      parameters:
+      - description: delete user
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+      security:
+      - BearerAuth: []
+      summary: Delete User
+      tags:
+      - Users
+    get:
+      description: Return user whoes userId valu mathes id.
+      parameters:
+      - description: update user by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+      security:
+      - BearerAuth: []
+      summary: Get User by ID
+      tags:
+      - Users
+    put:
+      description: Update user data in Db.
+      parameters:
+      - description: Update user
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Users'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+      security:
+      - BearerAuth: []
+      summary: Update User
+      tags:
+      - Users
+  /users/change-password:
+    put:
+      description: Change password.
+      parameters:
+      - description: Change password
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.ChangePassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Users'
+      security:
+      - BearerAuth: []
+      summary: Change password
+      tags:
+      - Users
+  /users/resend-verification:
+    post:
+      description: Return register new account
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - BearerAuth: []
+      summary: Register
+      tags:
+      - Users
+  /users/reset-password:
+    post:
+      description: reset password.
+      parameters:
+      - description: new password to reset
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.ResetPassword'
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - BearerAuth: []
+      summary: Reset Password
+      tags:
+      - Users
+  /users/verify-register:
+    post:
+      description: Return verify register
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - BearerAuth: []
+      summary: VerifyRegister
+      tags:
+      - Users
+  /warehouses:
+    get:
+      description: Return list of warehouse
+      parameters:
+      - in: query
+        name: filter
+        type: string
+      - in: query
+        name: limit
+        type: string
+      - in: query
+        name: page
+        type: string
+      - in: query
+        name: search
+        type: string
+      - in: query
+        name: search_fields
+        type: string
+      - in: query
+        name: sort
+        type: string
+      - in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.IPagination-array_models_Warehouses'
+      security:
+      - BearerAuth: []
+      summary: Get all warehouse
+      tags:
+      - Warehouses
+    post:
+      description: Save warehouse data in Db.
+      parameters:
+      - description: Create warehouse
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateWarehouse'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Warehouses'
+      security:
+      - BearerAuth: []
+      summary: Create Warehouse
+      tags:
+      - Warehouses
+  /warehouses/{id}:
+    delete:
+      description: Return the warehouse whoes warehouseId valu mathes id.
+      parameters:
+      - description: delete warehouse
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Warehouses'
+      security:
+      - BearerAuth: []
+      summary: Get Single warehouse by id.
+      tags:
+      - Warehouses
+    get:
+      description: Return the warehouse whoes WarehouseId value mathes id.
+      parameters:
+      - description: get warehouse by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Warehouses'
+      security:
+      - BearerAuth: []
+      summary: Get Single warehouse by id.
+      tags:
+      - Warehouses
+    put:
+      description: Update warehouse data.
+      parameters:
+      - description: update warehouse by id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update warehouse
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.CreateOrUpdateWarehouse'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Warehouses'
+      security:
+      - BearerAuth: []
+      summary: Update warehouse
+      tags:
+      - Warehouses
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

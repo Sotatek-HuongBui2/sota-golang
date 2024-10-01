@@ -1,0 +1,46 @@
+version: '3'
+services:
+  vtc-canteen-be:
+    env_file:
+      - .env
+    container_name: vtc-canteen-be
+    # restart: always
+    image: vtc-canteen-be
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    environment:
+      DATABASE_URL: "${DATABASE_URL}:${DATABASE_PORT}"
+    ports:
+      - "${PORT}:${PORT}"
+    networks:
+      - vtcapp
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mysql
+    # restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    env_file:
+      - .env
+    ports:
+      - 3307:3306
+    volumes:
+      - './data:/data/db' 
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASS}
+      MYSQL_DATABASE: ${DATABASE_SCHEMA}
+    networks:
+      - vtcapp
+networks:
+  vtcapp:
+    external: false
+volumes:
+  vtcc-db-data:
+
+
