@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"time"
-	"vtcanteen/utils"
 
 	"github.com/dgrijalva/jwt-go"
 )
@@ -19,7 +18,7 @@ func CreateToken(userId string) (tokenStr string, err error) {
 		UserId: userId,
 		StandardClaims: jwt.StandardClaims{
 			Issuer:    "VTCCanteen",
-			ExpiresAt: time.Now().Unix() + int64(utils.HourInSeconds()), // will be expired in 1 hour
+			ExpiresAt: time.Now().Add(time.Hour).Unix(),
 			NotBefore: time.Now().Unix(),
 		},
 	})
